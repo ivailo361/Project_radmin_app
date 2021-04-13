@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Admin, Resource, ListGuesser } from 'react-admin';
+import dataProvider from './dataprovider'
+import ComponentList from './mainResources/componentList'
+import Brands from './mainResources/brands'
+import Types from './mainResources/types'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const App = () => (
+    <Admin /*customRoutes={customRoutes} menu={Menu} dashboard={Dashboard} theme={theme}*/ dataProvider={dataProvider} >
 
+        <Resource name="components" list={ComponentList} />
+        <Resource name="brands" list={Brands} />
+        <Resource name="types" list={Types} />
+
+    </Admin>
+);
 export default App;
